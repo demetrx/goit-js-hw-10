@@ -56,3 +56,7 @@ npm run dev
 - Изображения добавляйте в папку `src/images`, заранее оптимизировав их. Сборщик просто копирует
   используемые изображения чтобы не нагружать систему оптимизацией картинок, так как на слабых
   компьютерах это может занять много времени.
+
+  "devDependencies": { "parcel-bundler": "^1.12.5", "parcel-plugin-handlebars-precompile": "^1.0.2",
+  "parcel-plugin-nuke-dist": "^1.0.1", "posthtml-include": "^1.6.2", "sass": "^1.32.8" },
+  "dependencies": { "lodash.debounce": "^4.0.8", "notiflix": "^3.2.5" }

@@ -1,0 +1,8 @@
+<div class="info-title">
+  <img src="{{flags.svg}}" alt="Flag of {{name.official}}">
+  <h1>{{name.official}}</h1>
+</div>
+
+<p><span>Capital: </span>{{capital}}</p>
+<p><span>Population: </span>{{population}}</p>
+<p><span>Languages: </span>{{#each languages}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
