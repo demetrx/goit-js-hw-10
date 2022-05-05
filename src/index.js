@@ -17,6 +17,7 @@ refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 function onSearch(e) {
   const value = e.target.value.trim();
   if (value === '') {
+    clearMarkup();
     return;
   }
 
@@ -25,6 +26,7 @@ function onSearch(e) {
 
 function handleData(data) {
   if (data.length > 10) {
+    clearMarkup();
     onTooManyMatches();
     return;
   }
@@ -38,19 +40,25 @@ function handleData(data) {
 }
 
 function renderCountriesList(list) {
-  refs.countryInfo.innerHTML = '';
+  clearMarkup();
   refs.countriesList.innerHTML = countriesListTpl(list);
 }
 
 function renderCountryInfo(country) {
-  refs.countriesList.innerHTML = '';
+  clearMarkup();
   refs.countryInfo.innerHTML = countryInfoTpl(country);
 }
 
 function onError() {
+  clearMarkup();
   Notiflix.Notify.failure('Oops, there is no country with that name.');
 }
 
 function onTooManyMatches() {
   Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+}
+
+function clearMarkup() {
+  refs.countriesList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
 }
